@@ -12,15 +12,15 @@ A full-stack authentication UI built with Bun + React, featuring a Liquid Glass 
 
 ## Tech Stack
 
-| Layer | Choice |
-|---|---|
-| Runtime | [Bun](https://bun.sh) |
-| Frontend | React 19 |
-| Styling | Tailwind CSS v4 + Liquid Glass design |
-| Auth | [better-auth](https://better-auth.com) (emailOTP + twoFactor plugins) |
-| Database | SQLite via `bun:sqlite` |
-| Email (dev) | [Mailpit](https://github.com/axllent/mailpit) (local SMTP) |
-| Email (prod) | [Resend](https://resend.com) |
+| Layer        | Choice                                                                |
+| ------------ | --------------------------------------------------------------------- |
+| Runtime      | [Bun](https://bun.sh)                                                 |
+| Frontend     | React 19                                                              |
+| Styling      | Tailwind CSS v4 + Liquid Glass design                                 |
+| Auth         | [better-auth](https://better-auth.com) (emailOTP + twoFactor plugins) |
+| Database     | SQLite via `bun:sqlite`                                               |
+| Email (dev)  | [Mailpit](https://github.com/axllent/mailpit) (local SMTP)            |
+| Email (prod) | [Resend](https://resend.com)                                          |
 
 ## Development Workflow
 
@@ -81,9 +81,9 @@ bun dev
 
 ## Email Configuration
 
-| Mode | Config |
-|---|---|
-| Local dev | Set `SMTP_HOST=localhost` and `SMTP_PORT=1025` in `.env` — all emails go to Mailpit |
+| Mode       | Config                                                                                  |
+| ---------- | --------------------------------------------------------------------------------------- |
+| Local dev  | Set `SMTP_HOST=localhost` and `SMTP_PORT=1025` in `.env` — all emails go to Mailpit     |
 | Production | Remove `SMTP_HOST` from `.env`, set `RESEND_API_KEY` and a verified `RESEND_FROM_EMAIL` |
 
 ## Testing

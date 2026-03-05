@@ -1,3 +1,4 @@
+import { passkeyClient } from "@better-auth/passkey/client"
 import { createAuthClient } from "better-auth/react"
 import { emailOTPClient, twoFactorClient } from "better-auth/client/plugins"
 
@@ -6,6 +7,10 @@ let twoFactorRedirectFn: (() => void) | undefined
 
 export function onTwoFactorRedirect(fn: () => void) {
   twoFactorRedirectFn = fn
+}
+
+export function callTwoFactorRedirect() {
+  twoFactorRedirectFn?.()
 }
 
 export const authClient = createAuthClient({
@@ -17,6 +22,7 @@ export const authClient = createAuthClient({
         twoFactorRedirectFn?.()
       },
     }),
+    passkeyClient(),
   ],
 })
 

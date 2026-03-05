@@ -1,3 +1,4 @@
+import { passkey } from "@better-auth/passkey"
 import { betterAuth } from "better-auth"
 import { emailOTP, twoFactor } from "better-auth/plugins"
 import { Database } from "bun:sqlite"
@@ -41,16 +42,29 @@ export const auth = betterAuth({
           "sign-in": "Your sign-in code",
           "forget-password": "Reset your password",
         }
-        await sendEmail(email, subjects[type] ?? "Your verification code", `Your code is: ${otp}\n\nThis code expires in 10 minutes.`)
+        await sendEmail(
+          email,
+          subjects[type] ?? "Your verification code",
+          `Your code is: ${otp}\n\nThis code expires in 10 minutes.`,
+        )
       },
     }),
     twoFactor({
       skipVerificationOnEnable: true,
       otpOptions: {
         async sendOTP({ user, otp }) {
-          await sendEmail(user.email, "Your login verification code", `Your login code is: ${otp}\n\nThis code expires in 10 minutes.`)
+          await sendEmail(
+            user.email,
+            "Your login verification code",
+            `Your login code is: ${otp}\n\nThis code expires in 10 minutes.`,
+          )
         },
       },
+    }),
+    passkey({
+      rpID: new URL(process.env.BETTER_AUTH_URL ?? "http://localhost:3000").hostname,
+      rpName: "SDD Login Page",
+      origin: process.env.BETTER_AUTH_URL ?? "http://localhost:3000",
     }),
   ],
 })

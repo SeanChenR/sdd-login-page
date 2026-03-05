@@ -61,7 +61,6 @@ export function App() {
     <LoginPage
       onNavigateRegister={() => setScreen("register")}
       onLoggedIn={() => setScreen("home")}
-      onNeedsTwoFactor={() => setScreen("two-factor")}
       onUnverifiedEmail={(email) => {
         setPendingEmail(email)
         setScreen("verify-email")

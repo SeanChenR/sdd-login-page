@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { GlassCard } from "../components/GlassCard"
 import { authClient } from "../lib/auth-client"
 import { validateOtp } from "../lib/validation"
@@ -12,6 +12,14 @@ export function TwoFactorPage({ onVerified }: TwoFactorPageProps) {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [resendStatus, setResendStatus] = useState<"idle" | "sent" | "sending">("idle")
+  const hasSentOtp = useRef(false)
+
+  // Send OTP on mount. useRef guard prevents double-send in React Strict Mode.
+  useEffect(() => {
+    if (hasSentOtp.current) return
+    hasSentOtp.current = true
+    authClient.twoFactor.sendOtp()
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
