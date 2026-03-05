@@ -1,0 +1,51 @@
+schema: spec-driven
+locale: en
+
+context: |
+  ## Tech Stack
+  - Runtime: Bun (use `bun` CLI for all scripts, installs, and builds — NOT node/npm/yarn)
+  - Frontend: React 19 with TypeScript, served via Bun.serve() with HTML imports (no Vite)
+  - Styling: Tailwind CSS v4.x with Liquid Glass / frosted-glass design system
+  - Auth: better-auth (TypeScript-first, handles email verification & 2FA via email OTP)
+  - Language: TypeScript (strict mode)
+
+  ## UI / Design System
+  - Design language: Liquid Glass — frosted glass panels, backdrop blur, translucency, soft shadows
+  - Tailwind CSS v4 for all styling (design tokens, utility classes, no CSS-in-JS)
+  - UI component style: clean, modern, accessible
+
+  ## Features in Scope
+  - Registration flow: email + password, followed by email verification (confirm link or OTP)
+  - Login flow: email + password, followed by 2FA via email OTP (two-step)
+  - Auth handled entirely by better-auth
+
+  ## Key Skills / References
+  - bun-development: Bun runtime patterns, Bun.serve(), bun:sqlite, HTML imports
+  - typescript-pro: strict TypeScript, advanced types
+  - vercel-react-best-practices: React performance, RSC boundaries, data patterns
+  - better-auth-best-practices: better-auth server/client setup, database adapters, session management
+  - liquid-glass-design: iOS 26 Liquid Glass design system, glass material, blur, reflections
+  - tailwind-design-system: Tailwind v4 design tokens, component patterns
+  - ui-ux-pro-max: UI/UX design intelligence, palettes, font pairings
+
+  ## Code Quality & Tooling
+  - Formatter: oxfmt (format on save, no semicolons — config in .oxfmtrc.json)
+  - Linter: oxlint (config already set up)
+  - All code must pass oxfmt + oxlint before committing
+  - Follow immutable patterns, small focused files (200-400 lines max)
+  - No hardcoded secrets — use environment variables via Bun's built-in .env loading
+
+  ## Conventions
+  - Conventional commits: feat, fix, refactor, docs, test, chore
+  - No Express — use Bun.serve() with routes
+  - No dotenv — Bun auto-loads .env
+  - No jest/vitest — use `bun test`
+
+rules:
+  proposal:
+    - Keep proposals concise and focused on user-facing outcomes
+    - Always include a "Non-goals" section to limit scope creep
+  tasks:
+    - Break tasks into small, independently completable units
+    - Each task should touch at most 2-3 files
+    - Always include a task for setting up tests alongside implementation
