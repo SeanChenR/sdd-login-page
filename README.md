@@ -7,6 +7,9 @@ A full-stack authentication UI built with Bun + React, featuring a Liquid Glass 
 - User registration with email verification (OTP)
 - Login with email + password
 - Two-factor authentication (email OTP) on every login
+- **Passkey authentication** — sign in with biometrics/device PIN (WebAuthn)
+- Passkey management — add, view, and delete passkeys from the home screen
+- Browser conditional UI — passkey autofill on the email input
 - Liquid Glass design system (frosted glass cards, inputs, buttons)
 - State machine routing — no router library needed
 
@@ -17,7 +20,7 @@ A full-stack authentication UI built with Bun + React, featuring a Liquid Glass 
 | Runtime      | [Bun](https://bun.sh)                                                 |
 | Frontend     | React 19                                                              |
 | Styling      | Tailwind CSS v4 + Liquid Glass design                                 |
-| Auth         | [better-auth](https://better-auth.com) (emailOTP + twoFactor plugins) |
+| Auth         | [better-auth](https://better-auth.com) (emailOTP + twoFactor + passkey plugins) |
 | Database     | SQLite via `bun:sqlite`                                               |
 | Email (dev)  | [Mailpit](https://github.com/axllent/mailpit) (local SMTP)            |
 | Email (prod) | [Resend](https://resend.com)                                          |
