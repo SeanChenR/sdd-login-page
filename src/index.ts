@@ -1,8 +1,12 @@
 import { serve } from "bun"
 import index from "./index.html"
+import { auth } from "./server/auth"
 
 const server = serve({
   routes: {
+    // Better Auth handles all auth routes
+    "/api/auth/*": auth.handler,
+
     // Serve index.html for all unmatched routes.
     "/*": index,
 

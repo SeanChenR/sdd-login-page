@@ -6,6 +6,7 @@ tags: ["workflow", "propose", "artifacts"]
 ---
 
 <!-- SPECTRA:START v1.0.0 -->
+
 Create a complete OpenSpec change proposal — from requirement to validated artifacts — in a single workflow.
 
 **Input**: The argument after `/spectra:propose` is the requirement description. Examples:

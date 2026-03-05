@@ -6,6 +6,7 @@ tags: ["workflow", "import", "plan", "claude"]
 ---
 
 <!-- SPECTRA:START v1.0.0 -->
+
 Update an existing OpenSpec change — from a Claude Code plan file or conversation context.
 
 **Claude Code only.** This skill can read plan files from `~/.claude/plans/` or use conversation context to update artifacts.
